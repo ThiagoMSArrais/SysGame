@@ -1,0 +1,39 @@
+<div class="container main-container">
+
+    <h1>Novo Jogo</h1>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-10">
+            <form novalidate="novalidate" (ngSubmit)="adicionarJogo()" [formGroup]="cadJogoForm">
+                <div class="alert alert-danger" *ngIf="errors.length > 0">
+                    <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+                    <ul>
+                        <li *ngFor="let error of errors">{{ error }}</li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nome</label>
+                    <div>
+                        <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)" formControlName="nome" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="emprestado">Emprestado</label><br>
+                    <input type="radio" value="true" id="emprestado" formControlName="emprestado" name="emprestado" (click)="trocarStatusParaEmprestado()"> Sim<br>
+                    <input type="radio" value="false" id="emprestado" formControlName="emprestado" name="emprestado" (click)="trocarStatusParaNaoEmprestado()"> Não
+                </div>
+                <div class="form-group" *ngIf='estaEmprestado'>
+                    <label class="control-label">Emprestado para o amigo:</label>
+                    <select class="form-control" id="amigoId" name="amigoId" formControlName="amigoId">
+                        <option *ngFor="let amigo of amigos" value="{{ amigo.amigoId}}">{{ amigo.nome }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Cadastrar" class="btn btn-primary">&nbsp;
+                    <a class="btn btn-info" [routerLink]="['/jogos/listar-todos']">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

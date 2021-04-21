@@ -1,0 +1,33 @@
+<div class="container main-container">
+
+    <h1>Lista de Amigos</h1>
+
+    <p>
+        <a class="btn btn-info" [routerLink]="['/amigos/adicionar-amigo']">Novo amigo</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nome</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tr *ngFor="let amigo of amigos">
+            <td>
+                {{ amigo.nome }}
+            </td>
+            <td class="text-right">
+                <a class="btn btn-info" [routerLink]="['/amigos/detalhes',amigo.amigoId]">
+                    <span class="fa fa-search"></span>
+                </a>&nbsp;
+                <a class="btn btn-warning" [routerLink]="['/amigos/editar',amigo.amigoId]">
+                    <span class="fa fa-pencil-alt"></span>
+                </a>&nbsp;
+                <a class="btn btn-danger" [routerLink]="['/amigos/excluir',amigo.amigoId]">
+                    <span class="fa fa-trash"></span>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>

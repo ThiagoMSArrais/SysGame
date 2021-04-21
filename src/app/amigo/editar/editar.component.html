@@ -1,0 +1,33 @@
+<div class="container main-container">
+
+    <h1>Editar Amigo</h1>
+    <hr>
+    <form novalidate="novalidate" (ngSubmit)="editarAmigo()" [formGroup]="amigoForm">
+
+        <div class="alert alert-danger" *ngIf="errors.length > 0">
+            <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+            <ul>
+                <li *ngFor="let error of errors">{{ error }}</li>
+            </ul>
+        </div>
+
+        <input type="hidden" id="amigoId" name="amigoId" formControlName="amigoId" value="">
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+
+                <div>
+                    <label class="control-label">Nome</label>
+                    <div>
+                        <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)" formControlName="nome" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Editar" class="btn btn-primary">&nbsp;
+            <a class="btn btn-info" [routerLink]="['/amigos/listar-todos']">Voltar</a>
+        </div>       
+    </form>
+</div>

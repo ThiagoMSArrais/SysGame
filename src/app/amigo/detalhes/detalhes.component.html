@@ -1,0 +1,21 @@
+<div class="container main-container">
+    <h1>Detalhes do Amigo</h1>
+
+    <div>
+        <h4>Informação somente leitura</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+            <label class="control-label">Nome</label>
+        </dt>
+            <dd class="col-sm-10">
+                {{ amigo.nome }}
+            </dd>
+        </dl>
+    </div>
+
+    <div>
+        <a class="btn btn-dark" [routerLink]="['/amigos/editar',amigo.amigoId]">Editar</a>&nbsp;
+        <a class="btn btn-info" [routerLink]="['/amigos/listar-todos']">Voltar</a>
+    </div>
+</div>

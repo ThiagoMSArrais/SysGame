@@ -1,0 +1,27 @@
+<div class="container main-container">
+    <h1>Detalhes do Jogo</h1>
+
+    <div>
+        <h4>Informação somente leitura</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label class="control-label">Nome do Jogo</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ jogo.nome }}
+            </dd>
+            <dt class="col-sm-2">
+                <label class="control-label">Emprestado para</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ jogo.nomeDoAmigoComJogoEmprestado }}
+            </dd>
+        </dl>
+    </div>
+
+    <div>
+        <a class="btn btn-dark" [routerLink]="['/jogos/editar',jogo.jogoId]">Editar</a>&nbsp;
+        <a class="btn btn-info" [routerLink]="['/jogos/listar-todos']">Voltar</a>
+    </div>
+</div>
